@@ -1,20 +1,20 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import "./globals.css";
+import { Noto_Sans } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const noto = Noto_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata = {
-  title: 'Akihiro KIUCHI',
-}
+  title: "Akihiro KIUCHI",
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={noto.className}>
+      <body>{children}</body>
     </html>
-  )
+  );
 }

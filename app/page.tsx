@@ -7,6 +7,7 @@ import cvIcon from "../public/cv.svg";
 import zwinImage from "../public/zwin.webp";
 import zigenPosterImage from "../public/zigen-poster.webp";
 import jenkinsImage from "../public/jenkins.webp";
+import perfectFitImage from "../public/perfect-fit.webp";
 import React from "react";
 
 const UILab = () => <Anchor href="https://www-ui.is.s.u-tokyo.ac.jp/en/">User Interface Research Group</Anchor>;
@@ -34,18 +35,39 @@ const CV = () => (
   </Anchor>
 );
 
+const Website = ({ href }: { href: string }) => (
+  <Anchor href={href}>
+    <button
+      type="button"
+      className="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-cyan-700 rounded-lg border border-cyan-700 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:border-cyan-500 dark:text-cyan-500 dark:hover:text-white dark:hover:bg-cyan-500 dark:focus:ring-cyan-800 duration-200"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 -960 960 960"
+        className="w-4 h-4 text-cyan-700 mr-2"
+        aria-hidden="true"
+        fill="currentColor"
+      >
+        <path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
+      </svg>
+      Website
+    </button>
+  </Anchor>
+);
+
 type ProjectItemProps = {
   title: string;
   link: string;
   image: StaticImageData;
   children?: React.ReactNode;
+  classes?: { image?: string };
 };
 
-const ProjectItem: React.FC<ProjectItemProps> = ({ title, children, link, image }) => (
+const ProjectItem: React.FC<ProjectItemProps> = ({ title, children, link, image, classes }) => (
   <>
     <div className="col-start-1 col-span-12 lg:col-start-2 lg:col-span-3">
       <Anchor href={link}>
-        <Image src={image} alt={title} />
+        <Image src={image} alt={title} className={classes && classes.image} />
       </Anchor>
     </div>
     <div className="col-start-1 col-span-12 lg:col-start-5 lg:col-span-7">
@@ -121,7 +143,7 @@ export default function Home() {
           </div>
 
           <div className="col-start-1 col-span-12 lg:col-start-2 lg:col-span-10">
-            <h2 className="text-2xl lg:text-3xl text-center lg:text-left">Project</h2>
+            <h2 className="text-2xl lg:text-3xl text-center lg:text-left">OSS Project</h2>
             <hr className="mt-3 border-gray-300" />
           </div>
 
@@ -171,6 +193,27 @@ export default function Home() {
               </Anchor>
               , <Anchor href="https://cloudbees.techmatrix.jp/jenkins-day-japan2021">Jenkins Day Japan</Anchor> (No
               public archive).
+            </div>
+          </ProjectItem>
+
+          <div className="col-start-1 col-span-12 lg:col-start-2 lg:col-span-10">
+            <h2 className="text-2xl lg:text-3xl text-center lg:text-left">Research Project</h2>
+            <hr className="mt-3 border-gray-300" />
+          </div>
+
+          <ProjectItem
+            title="PerfectFit: Custom-Fit Garment Design in Augmented Reality"
+            image={perfectFitImage}
+            classes={{ image: "px-10" }}
+            link="https://doi.org/10.1145/3610549.3614592"
+          >
+            <div className="mt-2">
+              <b>Akihiro Kiuchi</b>, Anran Qi, Eve Mingxiao Li, Dávid Maruscsák, Christian Sandor, and Takeo Igarashi
+              <br />
+              SIGGRAPH Asia 2023 XR Demo
+            </div>
+            <div className="mt-4">
+              <Website href="/perfect-fit" />
             </div>
           </ProjectItem>
 
