@@ -24,6 +24,22 @@ type Props = {
 
 export const AkihiroKiuchi: React.FC<Props> = (props) => <Author name="Akihiro Kiuchi" href="/" {...props} />;
 
+export const CharlesDeMalefette: React.FC<Props> = (props) => (
+  <Author name="Charles de Malefette" href="https://www.linkedin.com/in/charles-de-malefette-85586822a" {...props} />
+);
+
+export const MariePauleCani: React.FC<Props> = (props) => (
+  <Author
+    name="Marie-Paule Cani"
+    href="https://www.lix.polytechnique.fr/vista/vista-member/marie-paule_cani/"
+    {...props}
+  />
+);
+
+export const AmalDevParakkat: React.FC<Props> = (props) => (
+  <Author name="Amal Dev Parakkat" href="https://perso.telecom-paristech.fr/parakkat/" {...props} />
+);
+
 export const AnranQi: React.FC<Props> = (props) => (
   <Author name="Anran Qi" href="https://anranqi.github.io/" {...props} />
 );
