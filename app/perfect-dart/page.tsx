@@ -3,7 +3,7 @@ import { AmalDevParakkat, AnranQi, CharlesDeMalefette, MariePauleCani, TakeoIgar
 import PerfectDartImage from "../../public/perfect-dart.webp";
 import ResearchPage from "../component/research-page";
 
-let authors = [CharlesDeMalefette, AnranQi, TakeoIgarashi, MariePauleCani, AmalDevParakkat];
+let authors = [CharlesDeMalefette, AnranQi, AmalDevParakkat, MariePauleCani, TakeoIgarashi];
 
 const abstract = `
 Dart, a triangle-shaped folded and stitched tuck in a garment, is
