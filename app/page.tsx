@@ -10,7 +10,8 @@ import jenkinsImage from "../public/jenkins.webp";
 import perfectFitImage from "../public/perfect-fit.webp";
 import React from "react";
 
-const UILab = () => <Anchor href="https://www-ui.is.s.u-tokyo.ac.jp/en/">User Interface Research Group</Anchor>;
+const ENIAQ = () => <Anchor href="https://eniaq.jp">ENIAQ Inc.</Anchor>;
+const UILab = () => <Anchor href="https://www-ui.is.s.u-tokyo.ac.jp/en/">the User Interface Research Group</Anchor>;
 const UTokyo = () => <Anchor href="https://www.u-tokyo.ac.jp/en/index.html">the University of Tokyo</Anchor>;
 const Igarashi = () => <Anchor href="https://www-ui.is.s.u-tokyo.ac.jp/~takeo/index.html">Takeo Igarashi</Anchor>;
 
@@ -127,18 +128,12 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-4 text-left">
-              {"I'm"} a first-year Ph.D student in <UILab /> at <UTokyo />, advised by Prof. <Igarashi />.
+              I am the CTO of <ENIAQ/> and a second-year Ph.D. student in <UILab/> at <UTokyo/>, advised by
+              Prof. <Igarashi/>.
             </div>
             <div className="mt-4 text-left">
-              {`
-              My interest is in tools, systems, and standardizations that support creative activities such as
-              engineering, design, research, and so on. As for research, I am exploring the possibility of a new mixed
-              reality application paradigm where users can simultaneously use multiple applications from different
-              developers in a single mixed reality space. This will allow users to select and combine applications from
-              the market that suit their work and preferences. It will also make it easier for application developers to
-              enter the market, as they will only need to provide the functionality they want to offer. I hope this will
-              lead to an inclusive market where developers of all sizes can participate in mixed reality development.
-                `}
+              My interests focus on tools, systems, and standards that support creative activities across fields such as
+              engineering, design, and research.
             </div>
           </div>
 
