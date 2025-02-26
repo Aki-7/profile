@@ -9,6 +9,7 @@ import zigenPosterImage from "../public/zigen-poster.webp";
 import jenkinsImage from "../public/jenkins.webp";
 import perfectFitImage from "../public/perfect-fit.webp";
 import React from "react";
+import TrophyIcon from "@mui/icons-material/EmojiEvents"
 
 const ENIAQ = () => <Anchor href="https://eniaq.jp">ENIAQ Inc.</Anchor>;
 const UILab = () => <Anchor href="https://www-ui.is.s.u-tokyo.ac.jp/en/">the User Interface Research Group</Anchor>;
@@ -55,6 +56,12 @@ const Website = ({ href }: { href: string }) => (
     </button>
   </Anchor>
 );
+
+const Prise = ({title}: {title: string}) => {
+  return <div className="text-cyan-700">
+    <TrophyIcon/> {title}
+  </div>  
+}
 
 type ProjectItemProps = {
   title: string;
@@ -116,7 +123,8 @@ export default function Home() {
 
           <div className="col-start-1 col-span-12 mt-4 lg:col-span-7 lg:mt-0">
             <h1 className="text-3xl lg:text-4xl text-center lg:text-left">Akihiro Kiuchi</h1>
-            <div className="mt-4">
+            <h2 className="mt-1 text-base lg:text-lg text-center lg:text-left">Co-founder and CTO of <ENIAQ/></h2>
+            <div className="mt-5">
               <div className="text-center lg:inline-block lg:mr-5">
                 <GitHub href="https://github.com/Aki-7" accountName="Aki-7" />
               </div>
@@ -128,7 +136,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-4 text-left">
-              I am the CTO of <ENIAQ/> and a second-year Ph.D. student in <UILab/> at <UTokyo/>, advised by
+              I am the co-founder and CTO of <ENIAQ/> and a second-year Ph.D. student in <UILab/> at <UTokyo/>, advised by
               Prof. <Igarashi/>.
             </div>
             <div className="mt-4 text-left">
@@ -208,7 +216,12 @@ export default function Home() {
               SIGGRAPH Asia 2023 XR Demo
             </div>
             <div className="mt-4">
-              <Website href="/perfect-fit" />
+              <div className="inline-block mr-4">
+                <Website href="/perfect-fit" />
+              </div>
+              <div className="inline-block mr-4 -translate-y-1">
+                <Prise title="People's Choice Demo"/>
+              </div>
             </div>
           </ProjectItem>
 
