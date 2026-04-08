@@ -8,6 +8,9 @@ import zwinImage from "../public/zwin.webp";
 import zigenPosterImage from "../public/zigen-poster.webp";
 import jenkinsImage from "../public/jenkins.webp";
 import perfectFitImage from "../public/perfect-fit.webp";
+import eniaqImage from "../public/eniaq.webp";
+import minimatesImage from "../public/minimates.webp";
+import push2arImage from "../public/push2ar.webp";
 import React from "react";
 import TrophyIcon from "@mui/icons-material/EmojiEvents"
 
@@ -91,15 +94,17 @@ type PublicationItemProps = {
   image: StaticImageData;
   link: string;
   title: string;
-  authors: string;
+  authors: React.ReactNode;
   publish: string;
+  children?: React.ReactNode;
+  classes?: { image?: string };
 };
 
-const PublicationItem: React.FC<PublicationItemProps> = ({ image, link, title, authors, publish }) => (
+const PublicationItem: React.FC<PublicationItemProps> = ({ image, link, title, authors, publish, children, classes }) => (
   <>
     <div className="col-start-1 col-span-12 lg:col-start-2 lg:col-span-3">
       <Anchor href={link}>
-        <Image src={image} alt={title} />
+        <Image src={image} alt={title} className={classes && classes.image} />
       </Anchor>
     </div>
     <div className="col-start-1 col-span-12 lg:col-start-5 lg:col-span-7">
@@ -108,6 +113,7 @@ const PublicationItem: React.FC<PublicationItemProps> = ({ image, link, title, a
       </Anchor>
       <div className="text-left text-sm lg:text-base italic">{authors}</div>
       <div className="text-left text-sm lg:text-base italic">{publish}</div>
+      {children}
     </div>
   </>
 );
@@ -136,14 +142,92 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-4 text-left">
-              I am the co-founder and CTO of <ENIAQ/> and a second-year Ph.D. student in <UILab/> at <UTokyo/>, advised by
+              I am the co-founder and CTO of <ENIAQ/> and a Ph.D. student (currently on leave) in <UILab/> at <UTokyo/>, advised by
               Prof. <Igarashi/>.
             </div>
             <div className="mt-4 text-left">
-              My interests focus on tools, systems, and standards that support creative activities across fields such as
+              My interests lie in tools, systems, and standards that support creative activities across fields such as
               engineering, design, and research.
             </div>
           </div>
+
+          <div className="col-start-1 col-span-12 lg:col-start-2 lg:col-span-10">
+            <h2 className="text-2xl lg:text-3xl text-center lg:text-left">ENIAQ</h2>
+            <hr className="mt-3 border-gray-300" />
+          </div>
+
+          <ProjectItem title="ENIAQ" image={eniaqImage} link="https://eniaq.jp">
+            <div className="mt-2">
+              Co-founder & CTO
+            </div>
+          </ProjectItem>
+
+          <div className="col-start-1 col-span-12 lg:col-start-2 lg:col-span-10">
+            <h2 className="text-2xl lg:text-3xl text-center lg:text-left">Publications</h2>
+            <hr className="mt-3 border-gray-300" />
+          </div>
+
+          <PublicationItem
+            image={minimatesImage}
+            title="MiniMates: Miniature Avatars for AR Remote Meetings within Limited Physical Spaces"
+            link="https://doi.org/10.1145/3706598.3714328"
+            authors={<><u>Akihiro Kiuchi</u>, Jonathan Wieland, Takeo Igarashi, and David Lindlbauer.</>}
+            publish="In Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems."
+          >
+            <div className="mt-4">
+              <Website href="https://augmented-perception.org/publications/2025-minimates.html" />
+            </div>
+          </PublicationItem>
+
+          <div className="col-start-3 col-span-8">
+            <hr />
+          </div>
+
+          <PublicationItem
+            image={push2arImage}
+            title="Push2AR: Enhancing Mobile List Interactions Using Augmented Reality"
+            link="https://doi.org/10.1109/ISMAR62088.2024.00082"
+            authors={<>Jonathan Wieland, Hyunsung Cho, Sebastian Hubenschmid, <u>Akihiro Kiuchi</u>, Harald Reiterer, and David Lindlbauer.</>}
+            publish="In IEEE International Symposium on Mixed and Augmented Reality (ISMAR) 2024."
+          >
+            <div className="mt-4">
+              <Website href="https://augmented-perception.org/publications/2024-push2AR.html" />
+            </div>
+          </PublicationItem>
+
+          <div className="col-start-3 col-span-8">
+            <hr />
+          </div>
+
+          <PublicationItem
+            image={perfectFitImage}
+            classes={{ image: "px-10" }}
+            title="PerfectFit: Custom-Fit Garment Design in Augmented Reality"
+            link="https://doi.org/10.1145/3610549.3614592"
+            authors={<><u>Akihiro Kiuchi</u>, Anran Qi, Eve Mingxiao Li, Dávid Maruscsák, Christian Sandor, and Takeo Igarashi.</>}
+            publish="In SIGGRAPH Asia 2023 XR (Demo)."
+          >
+            <div className="mt-4">
+              <div className="inline-block mr-4">
+                <Website href="/perfect-fit" />
+              </div>
+              <div className="inline-block mr-4 -translate-y-1">
+                <Prise title="People's Choice Demo"/>
+              </div>
+            </div>
+          </PublicationItem>
+
+          <div className="col-start-3 col-span-8">
+            <hr />
+          </div>
+
+          <PublicationItem
+            image={zigenPosterImage}
+            title="ZIGEN: A Windowing System Enabling Multitasking Among 3D and 2D Applications in Immersive Environments"
+            link="https://doi.org/10.1145/3532719.3543200"
+            authors={<><u>Akihiro Kiuchi</u>, Taishi Eguchi, Jun Rekimoto, Manabu Tsukada, and Hiroshi Esaki.</>}
+            publish="In ACM SIGGRAPH 2022 Posters."
+          />
 
           <div className="col-start-1 col-span-12 lg:col-start-2 lg:col-span-10">
             <h2 className="text-2xl lg:text-3xl text-center lg:text-left">OSS Project</h2>
@@ -161,7 +245,10 @@ export default function Home() {
             </div>
             <div className="mt-4">
               Zwin is a Linux windowing system for XR. It allows you to use multiple 3D applications side by side, just
-              like on 2D desktops.
+              like on 2D desktops. Adopted by{" "}
+              <Anchor href="https://www.ipa.go.jp/en/it-talents/mitou/index.html">IPA MITOU IT Program</Anchor> (2021) and{" "}
+              <Anchor href="https://www.ipa.go.jp/en/it-talents/mitou/advanced-2023.html">MITOU Advanced Program</Anchor> (2022).
+              Development is currently inactive.
             </div>
             <div className="mt-4">
               Talks: <Anchor href="https://youtu.be/g_MvbwKp8Uk">{"MITOU'21"}</Anchor> (Japanese),{" "}
@@ -198,45 +285,6 @@ export default function Home() {
               public archive).
             </div>
           </ProjectItem>
-
-          <div className="col-start-1 col-span-12 lg:col-start-2 lg:col-span-10">
-            <h2 className="text-2xl lg:text-3xl text-center lg:text-left">Research Project</h2>
-            <hr className="mt-3 border-gray-300" />
-          </div>
-
-          <ProjectItem
-            title="PerfectFit: Custom-Fit Garment Design in Augmented Reality"
-            image={perfectFitImage}
-            classes={{ image: "px-10" }}
-            link="https://doi.org/10.1145/3610549.3614592"
-          >
-            <div className="mt-2">
-              <b>Akihiro Kiuchi</b>, Anran Qi, Eve Mingxiao Li, Dávid Maruscsák, Christian Sandor, and Takeo Igarashi
-              <br />
-              SIGGRAPH Asia 2023 XR Demo
-            </div>
-            <div className="mt-4">
-              <div className="inline-block mr-4">
-                <Website href="/perfect-fit" />
-              </div>
-              <div className="inline-block mr-4 -translate-y-1">
-                <Prise title="People's Choice Demo"/>
-              </div>
-            </div>
-          </ProjectItem>
-
-          <div className="col-start-1 col-span-12 lg:col-start-2 lg:col-span-10">
-            <h2 className="text-2xl lg:text-3xl text-center lg:text-left">Publication (Poster)</h2>
-            <hr className="mt-3 border-gray-300" />
-          </div>
-
-          <PublicationItem
-            image={zigenPosterImage}
-            title="ZIGEN: A Windowing System Enabling Multitasking Among 3D and 2D Applications in Immersive Environments"
-            link="https://doi.org/10.1145/3532719.3543200"
-            authors="Akihiro Kiuchi, Taishi Eguchi, Jun Rekimoto, Manabu Tsukada, and Hiroshi Esaki."
-            publish="In ACM SIGGRAPH 2022 Posters."
-          />
         </div>
       </div>
     </main>
